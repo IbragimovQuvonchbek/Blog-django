@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postni o`chirish</title>
+</head>
+<body>
+    {%extends 'base.html'%}
+    {%block content%}
+    <h1>{{post.title}}</h1>
+    <p>Postni o`chirilsinmi?</p>
+    <form action="" method="post">
+        {%csrf_token%}
+        {{form.as_p}}
+        <input type="submit" value="o'chirish">
+    </form>
+    {%endblock content%}
+</body>
+</html>

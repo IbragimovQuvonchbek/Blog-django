@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yangiliklar</title>
+</head>
+<body>
+    {%extends 'base.html'%}
+
+    {%block content%}
+        <h2 ><a href="{%url 'create_post'%}" style="color: red;">Yangi Post yaratish </a></h2>
+        <div class="blogPost">
+            {%for post in object_list%}
+            <h2><a href="{%url 'full_post' post.id%}">{{post.title}}</a></h2>
+            <p>{{post.body | slice:"100"}}...</p>
+            {%endfor%}
+        </div>
+
+    {%endblock content%}
+</body>
+</html>

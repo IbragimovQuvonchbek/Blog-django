@@ -1,0 +1,24 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <title>Ibragimov`s Blog</title>
+</head>
+<body>
+    <header>
+        <h1><a href="{%url 'home'%}">Ibragimov`s Blog</a></h1>
+    </header>
+    {% if user.is_authenticated%}
+    <p>Xush kelibsiz {{ user.username }}! || <a href="{% url 'logout' %}">Chiqish</a></p>
+    {%else%}
+    <p><a href="{%url 'login' %}">Saytga kirish</a> || <a href="{%url 'signup' %}">Ro'yxatdan o'tish</a></p>
+    {%endif%}
+    <div>
+        {%block content%}
+        {%endblock content%}
+    </div>
+</body>
+</html>
