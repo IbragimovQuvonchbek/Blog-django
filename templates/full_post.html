@@ -10,8 +10,23 @@
             color: green;
             text-decoration: none;
         }
-        a{
-            text-decoration: none;
+        p {
+        font-family: 'Roboto', sans-serif; /* Choose an appropriate font */
+        font-size: 16px; /* Adjust the font size as needed */
+        color: #333; /* Set the text color */
+        }
+
+        /* Style the logout link */
+        a {
+        color: #007BFF; /* Set the link color */
+        text-decoration: none; /* Remove underline */
+        font-weight: bold; /* Make the link text bold */
+        margin-left: 10px; /* Add some space to the left of the link */
+        }
+
+        /* Change link color on hover for better user feedback */
+        a:hover {
+        color: #0056b3; /* Change the color on hover */
         }
     </style>
 </head>
@@ -24,7 +39,9 @@
         <p>{{post.body}}</p>
     </div>
     <br>
+    {% if user.is_authenticated%}
     <p><a href="{% url 'edit_post' post.id %}">Postni tahrirlash</a>||<a href="{% url 'delete_post' post.id %}">Postni o`chirish</a></p>
+    {%endif%}
     {%endblock content%}
 </body>
 </html>
